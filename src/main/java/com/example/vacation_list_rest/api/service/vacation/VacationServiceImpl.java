@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -21,8 +22,16 @@ public class VacationServiceImpl implements VacationService{
 
     @Override
     @Transactional
-    public List<Vacation> getEmployeeVacations() {
-        return null;
+    public List<Vacation> getEmployeeVacations(int employeeId) {
+        List<Vacation> vacations = new ArrayList<>();
+        vacations = vacationDaO.getAll();
+        List<Vacation> result = new ArrayList<>();
+        for (Vacation vac: vacations) {
+            if (vac.getUserId()==employeeId){
+                result.add(vac);
+            }
+        }
+        return result;
     }
 
     @Override

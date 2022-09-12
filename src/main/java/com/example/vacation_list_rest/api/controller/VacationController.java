@@ -7,29 +7,37 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+import static org.springframework.data.jpa.domain.AbstractPersistable_.id;
+
 @RestController
 @RequestMapping("/vacation")
 public class VacationController {
     @Autowired
-    VacationService vacationService;
+    private VacationService vacationService;
 
     @GetMapping("/all")
-    public List<Vacation> getAllVacation(){
+    public List<Vacation> getVacations(){
         return vacationService.getAll();
     }
 
-    @PostMapping("/add")
-    public Vacation addVacation(@RequestBody Vacation vacation){
+    // доделать логику работы с входными параметрами id и body
+    @PutMapping("/{id}")
+    public Vacation addVacation(@RequestBody Vacation vacation, @PathVariable int id){
         return vacationService.addVacation(vacation);
     }
 
-    @PostMapping("/edit")
+    @PatchMapping("/edit")
     public Vacation editVacation(@RequestBody Vacation vacation){
         return vacationService.editVacation(vacation);
     }
 
-    @GetMapping("/delete/{id}")
+    @DeleteMapping("/delete/{id}")
     public void delete(@PathVariable int id){
         vacationService.delete(id);
+    }
+
+    @GetMapping("/{employeeId}/all")
+    public List<Vacation> getEmployeeVacations(@PathVariable int employeeId){
+        return vacationService.getEmployeeVacations(employeeId);
     }
 }

@@ -3,6 +3,9 @@ package com.example.vacation_list_rest.api.entity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @Entity
@@ -10,8 +13,12 @@ public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    @NotEmpty
     private String name;
+
     private String phone;
+    @NotNull(message = "Заполните почту")
+    @Email
     private String email;
     private String telegramId;
     @JsonIgnore

@@ -4,15 +4,20 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotEmpty;
 
 @Entity
 public class Vacation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    @NotEmpty
     private int userId;
+    @NotEmpty
     private String type;
+    @NotEmpty
     private String dateFrom;
+    @NotEmpty
     private String dateTo;
 
     public Vacation() {
