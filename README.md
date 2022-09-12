@@ -1,4 +1,4 @@
-# EmployeeVacation
+# Vacation List
 
 Реализация API для организации формирования заявлений на отпуск
 
