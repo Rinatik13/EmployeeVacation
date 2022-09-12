@@ -10,7 +10,4 @@ public interface EmployeeDaO {
     public Employee addEmployee(Employee employee);
     public Employee editEmployee(Employee employee);
     public void deleteEmployee(int id);
-
-
-
 }

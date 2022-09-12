@@ -18,8 +18,23 @@ public class EmployeeController {
         return employeeService.getAll();
     }
 
+    @GetMapping("/get/{id}")
+    public Employee getEmployee(@PathVariable int id){
+        return employeeService.getEmployee(id);
+    }
+
     @PostMapping("/add")
     public Employee addEmployee(@RequestBody Employee employee){
         return employeeService.addEmployee(employee);
+    }
+
+    @PostMapping("/edit")
+    public Employee editEmployee(@RequestBody Employee employee){
+        return employeeService.editEmployee(employee);
+    }
+
+    @GetMapping("/delete/{id}")
+    public void delete(@PathVariable int id){
+        employeeService.deleteEmployee(id);
     }
 }
