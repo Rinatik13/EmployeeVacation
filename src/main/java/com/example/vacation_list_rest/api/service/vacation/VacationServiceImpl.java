@@ -23,8 +23,7 @@ public class VacationServiceImpl implements VacationService{
     @Override
     @Transactional
     public List<Vacation> getEmployeeVacations(int employeeId) {
-        List<Vacation> vacations = new ArrayList<>();
-        vacations = vacationDaO.getAll();
+        List<Vacation> vacations  = vacationDaO.getAll();
         List<Vacation> result = new ArrayList<>();
         for (Vacation vac: vacations) {
             if (vac.getUserId()==employeeId){
@@ -34,17 +33,20 @@ public class VacationServiceImpl implements VacationService{
         return result;
     }
 
+    // реализуем метод добавления нового отпуска (не раньше 5 дней до начала отпуска)
     @Override
     @Transactional
-    public Vacation addVacation(Vacation vacation) {
+    public Vacation saveVacation(Vacation vacation) {
         return vacationDaO.addVacation(vacation);
     }
 
+    // реализуем метод внесения изменений в отпуск (не раньше 3 дней до начала отпуска)
     @Override
     @Transactional
     public Vacation editVacation(Vacation vacation) {
-        return vacationDaO.editVacation(vacation);
+        return vacationDaO.addVacation(vacation);
     }
+
 
     @Override
     @Transactional

@@ -31,13 +31,6 @@ public class VacationDaOImpl implements VacationDaO{
     }
 
     @Override
-    public Vacation editVacation(Vacation vacation) {
-        Session session = entityManager.unwrap(Session.class);
-        session.saveOrUpdate(vacation);
-        return vacation;
-    }
-
-    @Override
     public void delete(int id) {
         Session session = entityManager.unwrap(Session.class);
         Vacation vacation = session.get(Vacation.class,id);

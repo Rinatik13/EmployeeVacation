@@ -1,5 +1,7 @@
 package com.example.vacation_list_rest.api;
 
+import com.example.vacation_list_rest.api.entity.Vacation;
+import com.example.vacation_list_rest.api.entity.VacationType;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
