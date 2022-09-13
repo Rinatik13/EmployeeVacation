@@ -17,7 +17,7 @@ public class VacationCalendarDateTest extends VacationCalendarDate {
     @Test
     public void testDateStart() {
         Calendar calendar = Calendar.getInstance();
-        calendar.add(Calendar.DAY_OF_MONTH,3);
+        calendar.add(Calendar.DAY_OF_MONTH,4);
         SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
         String date = sdf.format(calendar.getTime());
         long day = 2;
@@ -45,6 +45,24 @@ public class VacationCalendarDateTest extends VacationCalendarDate {
     public void testDateStart4() {
         Calendar calendar = Calendar.getInstance();
         calendar.add(Calendar.DAY_OF_MONTH,55);
+        SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
+        String date = sdf.format(calendar.getTime());
+        long day = 5;
+        Assert.assertTrue(dateStart(date,day));
+    }
+    @Test
+    public void testDateStart5() {
+        Calendar calendar = Calendar.getInstance();
+        calendar.add(Calendar.DAY_OF_MONTH,8);
+        SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
+        String date = sdf.format(calendar.getTime());
+        long day = 3;
+        Assert.assertTrue(dateStart(date,day));
+    }
+    @Test
+    public void testDateStart6() {
+        Calendar calendar = Calendar.getInstance();
+        calendar.add(Calendar.DAY_OF_MONTH,8);
         SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
         String date = sdf.format(calendar.getTime());
         long day = 5;

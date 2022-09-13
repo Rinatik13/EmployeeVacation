@@ -8,4 +8,6 @@ public interface VacationDaO {
     public List<Vacation> getAll();
     public Vacation addVacation(Vacation vacation);
     public void delete(int id);
+
+    public Vacation getVacation(int id);
 }
