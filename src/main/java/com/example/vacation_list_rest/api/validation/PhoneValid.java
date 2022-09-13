@@ -4,6 +4,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 // валидация телефонного номера формата (+79876543210)
+// проверяем по шаблону, если не соответствует, то метод возвращает false
+// если соответствует, то возвращаем true
 public class PhoneValid {
     public static boolean validationPhoneNumber(String phoneNumber){
         // проверяем соответствие шаблону (+798776543210)

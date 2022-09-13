@@ -3,6 +3,11 @@ package com.example.vacation_list_rest.api.validation;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+// проверяем соответствие шаблона даты
+// если дата не соответствует шаблону то метод возвращает false
+// если дата соответствует шаблону то метод возвращает true
+// если количество дней и количество месяцев больше максимального их значения то возвращает false
+// по умолчанию дней до 31, месяцы до 12.
 public class DateValid {
     public static boolean validationDate(String date){
         Pattern pattern = Pattern.compile("^\\d{2}.\\d{2}.\\d{4}$");

@@ -4,6 +4,9 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 // проверка имени пользователя
+// проверяем если в имени присутствуют символы то метод возвращает false
+// если в имени отсутствуют симвобы то метод возвращает true
+// проверяем длину имени, она должна быть от 2 до 45 символов
 public class NameValid {
     public static boolean validationName(String name){
         Pattern pattern = Pattern.compile("\\W");
