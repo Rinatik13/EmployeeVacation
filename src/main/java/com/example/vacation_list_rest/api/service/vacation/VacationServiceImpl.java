@@ -65,7 +65,7 @@ public class VacationServiceImpl implements VacationService{
     // проверяем ранее записанный отпуск
     @Override
     @Transactional
-    public Vacation editVacation(Vacation vacation) {
+    public Vacation editVacation(Vacation vacation, int id) {
         VacationCalendarDate date = new VacationCalendarDate();
         VacationEditAnalizDayCount analizDayCount = new VacationEditAnalizDayCount();
         List<Vacation> vacations  = vacationDaO.getAll();
@@ -81,7 +81,7 @@ public class VacationServiceImpl implements VacationService{
             Vacation myVacation = vacationDaO.getVacation(vacation.getId());
             // проверяем возможность внесения изменений
                if (analizDayCount.analiz(vacation,myVacation,result,28)){
-                   return vacationDaO.addVacation(vacation);
+                   return vacationDaO.editVacation(vacation, id);
                }
                else {
                    return null;

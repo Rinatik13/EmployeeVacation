@@ -15,8 +15,9 @@ public class VacationEditAnalizDayCount {
         // который хотим изменить
         for (Vacation vac : vacationList){
             if (vacation.getId()==vac.getId()){
-                id = vac.getId();
+                break;
             }
+            id++;
         }
         // удаляем этот отпуск
         vacationList.remove(id);

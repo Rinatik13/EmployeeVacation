@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 8.0.29, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.28, for Win64 (x86_64)
 --
 -- Host: localhost    Database: vacationslist
 -- ------------------------------------------------------
--- Server version	8.0.29
+-- Server version	8.0.28
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -25,12 +25,22 @@ DROP TABLE IF EXISTS `employee`;
 CREATE TABLE `employee` (
   `id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(45) DEFAULT NULL,
-  `phone` varchar(45) DEFAULT NULL,
+  `phone` varchar(12) DEFAULT NULL,
   `email` varchar(45) DEFAULT NULL,
   `telegram_id` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `employee`
+--
+
+LOCK TABLES `employee` WRITE;
+/*!40000 ALTER TABLE `employee` DISABLE KEYS */;
+INSERT INTO `employee` VALUES (31,'test','+79872422185','test@yandex.ru','@testid'),(32,'test','+79872422185','test@yandex.ru','@testid'),(33,'test','+79872422185','test@yandex.ru','@testid');
+/*!40000 ALTER TABLE `employee` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `vacation`
@@ -48,8 +58,18 @@ CREATE TABLE `vacation` (
   PRIMARY KEY (`id`,`user_id`),
   KEY `employee_id_idx` (`user_id`),
   CONSTRAINT `employee_id` FOREIGN KEY (`user_id`) REFERENCES `employee` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `vacation`
+--
+
+LOCK TABLES `vacation` WRITE;
+/*!40000 ALTER TABLE `vacation` DISABLE KEYS */;
+INSERT INTO `vacation` VALUES (29,31,'PAID','13.10.2022','14.10.2022');
+/*!40000 ALTER TABLE `vacation` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -60,4 +80,4 @@ CREATE TABLE `vacation` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-09-13  8:54:44
+-- Dump completed on 2022-09-14 13:30:33

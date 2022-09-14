@@ -11,5 +11,5 @@ public interface VacationDaO {
 
     public Vacation getVacation(int id);
 
-    public Vacation editVacation(Vacation vacation);
+    public Vacation editVacation(Vacation vacation, int id);
 }

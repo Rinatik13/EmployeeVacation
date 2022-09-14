@@ -44,8 +44,7 @@ public class EmployeeController {
         if (NameValid.validationName(employee.getName()) && EmailValid.validationEmail(employee.getEmail())
                 && PhoneValid.validationPhoneNumber(employee.getPhone())
                 && TelegramIdValid.validationTelegramId(employee.getTelegramId())){
-            employee.setId(id);
-            return employeeService.saveEmployee(employee);
+            return employeeService.editEmployee(employee,id);
         }
         else {
             return null;

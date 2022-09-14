@@ -8,6 +8,6 @@ public interface VacationService {
     public List<Vacation> getAll();
     public List<Vacation> getEmployeeVacations(int employeeId);
     public Vacation saveVacation(Vacation vacation);
-    public Vacation editVacation(Vacation vacation);
+    public Vacation editVacation(Vacation vacation, int id);
     public void delete(int id);
 }
