@@ -1,6 +1,7 @@
 package com.example.vacation_list_rest.api.entity;
 
 import javax.persistence.*;
+import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
@@ -16,11 +17,13 @@ public class Vacation {
     @Enumerated(EnumType.STRING)
     private VacationType type;
 
-    @NotEmpty
-    @Size()
+    @NotEmpty(message = "Не введена дата")
+    @Min( value = 10, message = "Дата не соответствует шаблону.")
+    @Max (value = 10, message = "Дата не соответствует шаблону.")
     private String dateFrom;
-    @NotEmpty
-    @Size
+    @NotEmpty(message = "Не введена дата")
+    @Min( value = 10, message = "Дата не соответствует шаблону.")
+    @Max (value = 10, message = "Дата не соответствует шаблону.")
     private String dateTo;
 
     public Vacation() {

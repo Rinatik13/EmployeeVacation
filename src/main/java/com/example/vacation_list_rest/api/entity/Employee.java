@@ -14,7 +14,7 @@ public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @NotEmpty
+    @NotEmpty(message = "Имя не заполнено.")
     @Size(min = 2, max = 45, message = "Имя не соответствует размеру.")
     private String name;
 
