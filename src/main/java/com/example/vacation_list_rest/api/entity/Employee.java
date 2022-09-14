@@ -6,6 +6,7 @@ import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.List;
 
 @Entity
@@ -14,12 +15,16 @@ public class Employee {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @NotEmpty
+    @Size(min = 2, max = 45, message = "Имя не соответствует размеру.")
     private String name;
 
+    @Size(min = 11, max = 12, message = "Не корректный размер номера телефона.")
     private String phone;
-    @NotNull(message = "Заполните почту")
-    @Email
+    @NotNull(message = "Заполните почту.")
+    @Email(message = "Электронная почта не соответствует шаблону.")
+    @Size(min = 6,max = 45, message = "Электронная почта не соответствует размеру.")
     private String email;
+    @Size(min = 6, max = 45, message = "Телеграмм id не соответствует размеру.")
     private String telegramId;
     @JsonIgnore
     @ManyToMany(cascade = CascadeType.ALL)

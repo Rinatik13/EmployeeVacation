@@ -1,23 +1,26 @@
 package com.example.vacation_list_rest.api.entity;
 
 import javax.persistence.*;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 
 @Entity
 public class Vacation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @NotEmpty
+    @NotEmpty(message = "Отсутствует id сотрудника.")
     private int userId;
 
     @Enumerated(EnumType.STRING)
     private VacationType type;
-//    @NotEmpty
-//    private String type;
+
     @NotEmpty
+    @Size()
     private String dateFrom;
     @NotEmpty
+    @Size
     private String dateTo;
 
     public Vacation() {
