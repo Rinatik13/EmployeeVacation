@@ -22,12 +22,12 @@ public class EmployeeController {
         return employeeService.getAll();
     }
 
-    @GetMapping("/get/{id}")
+    @GetMapping("/{id}")
     public Employee getEmployee(@PathVariable int id){
         return employeeService.getEmployee(id);
     }
 
-    @PutMapping("/add")
+    @PutMapping("")
     public Employee addEmployee(@RequestBody  Employee employee){
         if (NameValid.validationName(employee.getName()) && EmailValid.validationEmail(employee.getEmail())
         && PhoneValid.validationPhoneNumber(employee.getPhone())
@@ -39,11 +39,12 @@ public class EmployeeController {
         }
     }
 
-    @PatchMapping("/edit")
-    public Employee editEmployee(@RequestBody Employee employee){
+    @PatchMapping("/{id}")
+    public Employee editEmployee(@RequestBody Employee employee, @PathVariable int id){
         if (NameValid.validationName(employee.getName()) && EmailValid.validationEmail(employee.getEmail())
                 && PhoneValid.validationPhoneNumber(employee.getPhone())
                 && TelegramIdValid.validationTelegramId(employee.getTelegramId())){
+            employee.setId(id);
             return employeeService.saveEmployee(employee);
         }
         else {
@@ -51,7 +52,7 @@ public class EmployeeController {
         }
     }
 
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/{id}")
     public void delete(@PathVariable int id){
         employeeService.deleteEmployee(id);
     }

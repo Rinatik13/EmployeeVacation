@@ -42,18 +42,37 @@ public class VacationsAnalizDayCount {
                 calendar.setTime(sdf.parse(dateFrom));
                 calendar.setTime(sdf.parse(dateTo));
 
+                //************************
+                // необходимо добавить добавление данных за начальный год!!! плохо работает
                 // перебираем все наши оплачиваемые отпуска
-                // пока за весь период! не разделено по годам!!
                 // заполняем количество отпускных дней
                 Map<String, Integer> resultMap = new HashMap<>();
                 for (Vacation vac : vacationsEmployee) {
                     countDayToYear = vacationDayCount.getVacationYearDay(vac.getDateFrom(), vac.getDateTo());
                     for (Map.Entry<String, Integer> entry : countDayToYear.entrySet()) {
-                        System.out.println(entry.getKey() + " " + entry.getValue());
-                        resultMap.put(entry.getKey(), resultMap.get(entry.getKey()) + entry.getValue());
+                        String year = entry.getKey();
+                        int num = entry.getValue();
+                        if (resultMap.get(year)==null){
+                            resultMap.put(year,num);
+                        }
+                        else{
+                            resultMap.put(year, (resultMap.get(year) + num));
+                        }
+                    }
+                }
+                countDayToYear = vacationDayCount.getVacationYearDay(vacation.getDateFrom(), vacation.getDateTo());
+                for (Map.Entry<String, Integer> entry : countDayToYear.entrySet()) {
+                    String year = entry.getKey();
+                    int num = entry.getValue();
+                    if (resultMap.get(year)==null){
+                        resultMap.put(year,num);
+                    }
+                    else{
+                        resultMap.put(year, (resultMap.get(year) + num));
                     }
                 }
                 for (Map.Entry<String, Integer> entry : resultMap.entrySet()) {
+                    System.out.println("key: " + entry.getKey() + ", value: " + entry.getValue());
                     if (entry.getValue()>day){
                         return false;
                     }

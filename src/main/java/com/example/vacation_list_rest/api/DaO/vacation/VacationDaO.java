@@ -10,4 +10,6 @@ public interface VacationDaO {
     public void delete(int id);
 
     public Vacation getVacation(int id);
+
+    public Vacation editVacation(Vacation vacation);
 }

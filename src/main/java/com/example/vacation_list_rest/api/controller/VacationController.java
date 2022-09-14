@@ -33,8 +33,10 @@ public class VacationController {
     }
 
     @PatchMapping("/{id}")
-    public Vacation editVacation(@RequestBody Vacation vacation, @PathVariable int id){
-        if (DateValid.validationDate(vacation.getDateFrom())&&DateValid.validationDate(vacation.getDateTo())){
+    public Vacation editVacation(@PathVariable int id, @RequestBody Vacation vacation){
+        if (DateValid.validationDate(vacation.getDateFrom())
+                && DateValid.validationDate(vacation.getDateTo()))
+        {
             vacation.setId(id);
             return vacationService.saveVacation(vacation);
         }
@@ -43,7 +45,7 @@ public class VacationController {
         }
     }
 
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/{id}")
     public void delete(@PathVariable int id){
         vacationService.delete(id);
     }

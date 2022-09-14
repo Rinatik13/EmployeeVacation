@@ -57,7 +57,6 @@ public class VacationDayCount {
             while (!calendarStart.after(calendarEnd)) {
                 String year = sdfYaer.format(calendarStart.getTime());
                 countDayToYear.put(year,countDayToYear.get(year)+1);
-                System.out.println(year + " " + countDayToYear.get(year));
                 calendarStart.add(Calendar.DAY_OF_WEEK,1);
             }
 
