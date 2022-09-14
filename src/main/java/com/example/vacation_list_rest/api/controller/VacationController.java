@@ -37,7 +37,7 @@ public class VacationController {
         if (DateValid.validationDate(vacation.getDateFrom())
                 && DateValid.validationDate(vacation.getDateTo()))
         {
-            vacation.setId(id);
+
             return vacationService.editVacation(vacation, id);
         }
         else {

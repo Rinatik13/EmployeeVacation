@@ -10,5 +10,5 @@ public interface EmployeeService {
     public Employee saveEmployee(Employee employee);
     public void deleteEmployee(int id);
 
-    public Employee editEmployee(Employee employee, int id);
+    public Employee editEmployee(Employee employee);
 }

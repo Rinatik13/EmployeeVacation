@@ -36,15 +36,8 @@ public class EmployeeDaOImpl implements EmployeeDaO{
     }
 
     @Override
-    public Employee editEmployee(Employee employee, int id) {
+    public Employee editEmployee(Employee employee) {
         Session session = entityManager.unwrap(Session.class);
-        employee.setId(id);
-//        Employee empl = session.get(Employee.class,id);
-//        empl.setEmail(employee.getEmail());
-//        empl.setName(employee.getName());
-//        empl.setPhone(employee.getPhone());
-//        empl.setTelegramId(employee.getTelegramId());
-//        empl.setVacationList(employee.getVacationList());
         session.saveOrUpdate(employee);
         return employee;
     }
